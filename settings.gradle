@@ -1,0 +1,8 @@
+include ':reflect'
+include ':exception'
+include ':handler'
+include ':logger'
+include ':permissions'
+include ':res'
+include ':app'
+rootProject.name = "Foresee"

@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':permissions-annotation')
+    implementation project(path: ':reflect')
+    //noinspection AnnotationProcessorOnCompilePath
+    implementation "com.google.auto.service:auto-service:$rootProject.ext.autoServiceVersion"
+    annotationProcessor "com.google.auto.service:auto-service:$rootProject.ext.autoServiceVersion"
+    implementation "com.squareup:javapoet:$rootProject.ext.javapoetVersion"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

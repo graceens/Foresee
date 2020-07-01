@@ -1,4 +1,8 @@
+include ':permissions-compiler'
+include ':permissions-annotation'
 include ':reflect'
+include ':utils'
+include ':storage'
 include ':exception'
 include ':handler'
 include ':logger'

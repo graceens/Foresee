@@ -10,6 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.grace.foresee.exception.CrashHandler;
+import com.grace.foresee.kit.storage.Storage;
+import com.grace.foresee.logger.AndroidLogAdapter;
+import com.grace.foresee.logger.LogStorageStrategy;
+import com.grace.foresee.logger.LogStrategy;
+import com.grace.foresee.logger.Logger;
+import com.grace.foresee.logger.PrettyFormatStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +39,18 @@ public class App extends Application implements Application.ActivityLifecycleCal
 
         new CrashHandler.Builder(this)
                 .duration(2000)
-                .logListener(throwable -> Log.e(TAG, Objects.requireNonNull(throwable.getMessage())))
+                .logListener(Logger::e)
                 .destroyListener(this::finishAll)
                 .build()
                 .init();
+
+        //logcat日志适配器
+        Logger.addAdapter(new AndroidLogAdapter(new PrettyFormatStrategy.Builder()
+                .tag("logcat")
+                .methodCount(20)
+                .build()));
+
+
     }
 
     @Override

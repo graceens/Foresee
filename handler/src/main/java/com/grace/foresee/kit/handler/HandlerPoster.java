@@ -16,10 +16,8 @@ public class HandlerPoster extends Handler implements Poster {
     private Dispatcher mAsyncDispatcher;
     private Dispatcher mSyncDispatcher;
 
-    public HandlerPoster(Looper looper, int maxMillisInsideHandleMessage, boolean onlyAsync) {
+    public HandlerPoster(Looper looper, boolean onlyAsync) {
         super(looper);
-
-        MAX_MILLIS_INSIDE_HANDLE_MESSAGE = maxMillisInsideHandleMessage;
 
         mAsyncDispatcher = new Dispatcher(new LinkedList<>(), () -> sendMessage(ASYNC));
 
@@ -28,6 +26,11 @@ public class HandlerPoster extends Handler implements Poster {
         } else {
             mSyncDispatcher = new Dispatcher(new LinkedList<>(), () -> sendMessage(SYNC));
         }
+    }
+
+    public HandlerPoster(Looper looper, int maxMillisInsideHandleMessage, boolean onlyAsync) {
+        this(looper, onlyAsync);
+        MAX_MILLIS_INSIDE_HANDLE_MESSAGE = maxMillisInsideHandleMessage;
     }
 
     @Override

@@ -16,8 +16,12 @@
             <option value="$PROJECT_DIR$/handler" />
             <option value="$PROJECT_DIR$/logger" />
             <option value="$PROJECT_DIR$/permissions" />
+            <option value="$PROJECT_DIR$/permissions-annotation" />
+            <option value="$PROJECT_DIR$/permissions-compiler" />
             <option value="$PROJECT_DIR$/reflect" />
             <option value="$PROJECT_DIR$/res" />
+            <option value="$PROJECT_DIR$/storage" />
+            <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

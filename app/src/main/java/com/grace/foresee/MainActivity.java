@@ -75,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     "android.permission.READ_PHONE_STATE"};
         }
 
-        mPermissionRequestor = PermissionRequestor.with(this)
-                .request(requestPermission);
+        mPermissionRequestor = PermissionRequestor.with(this).request(requestPermission);
     }
 
     @Granted
@@ -90,9 +89,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Rationale
-    private boolean rationale(String[] permissions) {
+    private void rationale(String[] permissions) {
         mPermissionRequestor.rationalRequest(permissions);
-        return true;
     }
 
     @PermanentlyDenied
@@ -101,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
         mPermissionRequestor.manualRequest(permissions);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

@@ -144,16 +144,6 @@ public class PermissionsProcessor extends AbstractProcessor {
                 String className = typeElement.getQualifiedName().toString();
                 String methodName = executableElement.getSimpleName().toString();
 
-                if (cls == Rationale.class) {
-                    // 检查返回类型
-                    TypeMirror returnType = executableElement.getReturnType();
-                    if (returnType.getKind() != TypeKind.BOOLEAN) {
-                        String format = "The method [%s] return type must be boolean";
-                        mMessager.printMessage(Diagnostic.Kind.ERROR, String.format(format, methodName));
-                        return false;
-                    }
-                }
-
                 // 检查形参
                 List<? extends VariableElement> parameters = executableElement.getParameters();
                 if (parameters == null || parameters.size() < 1) {

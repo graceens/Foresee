@@ -83,8 +83,9 @@ public class PermissionProxyGenerator {
 
         if (!Strings.isNullOrEmpty(ownerMethodName)) {
             builder.beginControlFlow("if($N == $N)", "requestCode", "REQUEST_CODE")
-                    .addStatement("return $T.with(source).call($S, new $T[]{permissions}).get()", Reflector.class,
+                    .addStatement("$T.with(source).call($S, new $T[]{permissions})", Reflector.class,
                             ownerMethodName, Object.class)
+                    .addStatement("return true")
                     .endControlFlow()
                     .addStatement("return false");
         } else {

@@ -11,7 +11,7 @@ import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 
-import com.grace.foresee.kit.utils.AppUtil;
+import com.grace.foresee.utils.AppUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;

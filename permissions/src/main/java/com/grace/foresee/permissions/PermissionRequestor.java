@@ -7,7 +7,7 @@ import android.os.Build;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.grace.foresee.kit.utils.AppUtil;
+import com.grace.foresee.utils.AppUtil;
 
 public class PermissionRequestor {
     private Object source;

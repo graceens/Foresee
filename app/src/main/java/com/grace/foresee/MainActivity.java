@@ -2,15 +2,15 @@ package com.grace.foresee;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 
-import com.grace.foresee.kit.storage.Storage;
+import com.grace.foresee.storage.Storage;
+import com.grace.foresee.storage.StorageWriter;
 import com.grace.foresee.logger.AndroidLogAdapter;
 import com.grace.foresee.logger.LogStorageStrategy;
 import com.grace.foresee.logger.LogStrategy;

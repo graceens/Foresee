@@ -1,6 +1,6 @@
 package com.grace.foresee.permissions;
 
-import com.grace.foresee.kit.reflect.Reflector;
+import com.grace.foresee.reflect.Reflector;
 import com.grace.foresee.permissions.annotation.Constant;
 
 public class ProxyService {

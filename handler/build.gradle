@@ -27,10 +27,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxAppcompatVersion"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.androidxAppcompatVersion}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 }
+
+ext{
+    name = "handler"
+    desc = "A wrapper handler that provides a way to switch method the main thread and the background thread."
+    website = "http://47.108.86.80/graceens/foresee/tree/master/handler"
+    labels = ['java', 'android', 'handler']
+}
+
+apply from: '../publish_aar.gradle'

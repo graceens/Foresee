@@ -4,22 +4,17 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.grace.foresee.exception.CrashHandler;
-import com.grace.foresee.kit.storage.Storage;
 import com.grace.foresee.logger.AndroidLogAdapter;
-import com.grace.foresee.logger.LogStorageStrategy;
-import com.grace.foresee.logger.LogStrategy;
 import com.grace.foresee.logger.Logger;
 import com.grace.foresee.logger.PrettyFormatStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class App extends Application implements Application.ActivityLifecycleCallbacks {
     private static final String TAG = "App";

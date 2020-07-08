@@ -1,0 +1,100 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def website = ext.website
+def git = "http://47.108.86.80/graceens/foresee.git"
+def libName = ext.name
+def libDescription = ext.desc
+def libVersion = rootProject.ext.versionName
+def libGroupId = "com.grace.foresee"
+def libLabels = ext.labels
+
+version libVersion
+group libGroupId
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'jar'
+                name libName
+                artifactId libName
+
+                description libDescription
+                url website
+
+                licenses {
+                    license {
+                        name "The Apache Software License, Version 2.0"
+                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'grace'
+                        name 'enshuo zhang'
+                        email '[gracemalezhang@gmail.com]'
+                    }
+                }
+
+                scm {
+                    connection git
+                    developerConnection git
+                    url website
+                }
+            }
+        }
+    }
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = 'foresee'
+        name = libName
+        desc = libDescription
+        userOrg = 'grace'
+        websiteUrl = website
+        vcsUrl = git
+        licenses = ['Apache-2.0']
+        labels = libLabels
+        publicDownloadNumbers = true
+        publish = true
+        version {
+            name = libVersion
+            desc = libDescription
+            released = new Date()
+            mavenCentralSync {
+                sync = true
+                user = properties.getProperty("ossrh.user")
+                password = properties.getProperty("ossrh.pass")
+            }
+            gpg {
+                sign = true
+                passphrase = properties.getProperty("bintray.gpg.pass")
+            }
+        }
+    }
+}

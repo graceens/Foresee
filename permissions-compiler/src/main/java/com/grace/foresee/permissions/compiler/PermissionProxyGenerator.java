@@ -1,7 +1,7 @@
 package com.grace.foresee.permissions.compiler;
 
 import com.google.common.base.Strings;
-import com.grace.foresee.kit.reflect.Reflector;
+import com.grace.foresee.reflect.Reflector;
 import com.grace.foresee.permissions.annotation.Constant;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.FieldSpec;

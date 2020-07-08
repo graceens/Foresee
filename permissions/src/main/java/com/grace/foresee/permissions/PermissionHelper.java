@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 
-import com.grace.foresee.kit.utils.AppUtil;
+import com.grace.foresee.utils.AppUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

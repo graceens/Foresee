@@ -2,14 +2,13 @@ package com.grace.foresee;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.grace.foresee.kit.reflect.Reflector;
+import com.grace.foresee.reflect.Reflector;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.lang.reflect.Field;
 import java.util.Map;
 
 @RunWith(AndroidJUnit4.class)

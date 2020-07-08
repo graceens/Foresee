@@ -27,10 +27,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxAppcompatVersion"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.androidxAppcompatVersion}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 }
+
+ext{
+    name = "res"
+    desc = "Common resources."
+    website = "http://47.108.86.80/graceens/foresee/tree/master/res"
+    labels = ['java', 'android', 'res']
+}
+
+apply from: '../publish_aar.gradle'

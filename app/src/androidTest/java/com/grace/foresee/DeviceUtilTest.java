@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.grace.foresee.kit.utils.DeviceUtil;
+import com.grace.foresee.utils.DeviceUtil;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;

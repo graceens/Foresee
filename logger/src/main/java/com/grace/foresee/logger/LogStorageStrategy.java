@@ -1,6 +1,6 @@
 package com.grace.foresee.logger;
 
-import com.grace.foresee.kit.storage.StorageWriter;
+import com.grace.foresee.storage.StorageWriter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

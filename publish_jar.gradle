@@ -5,7 +5,7 @@ def website = ext.website
 def git = "http://47.108.86.80/graceens/foresee.git"
 def libName = ext.name
 def libDescription = ext.desc
-def libVersion = rootProject.ext.versionName
+def libVersion = ext.version
 def libGroupId = "com.grace.foresee"
 def libLabels = ext.labels
 
@@ -16,6 +16,12 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
+
+//afterEvaluate {
+//    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+//        variant.javaCompileProvider.get().classpath.files
+//    })
+//}
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
@@ -86,15 +92,21 @@ bintray {
             name = libVersion
             desc = libDescription
             released = new Date()
-            mavenCentralSync {
-                sync = true
-                user = properties.getProperty("ossrh.user")
-                password = properties.getProperty("ossrh.pass")
-            }
+//            mavenCentralSync {
+//                sync = true
+//                user = properties.getProperty("ossrh.user")
+//                password = properties.getProperty("ossrh.pass")
+//            }
             gpg {
                 sign = true
                 passphrase = properties.getProperty("bintray.gpg.pass")
             }
+        }
+    }
+    javadoc {
+        options {
+            encoding "UTF-8"
+            charSet 'UTF-8'
         }
     }
 }

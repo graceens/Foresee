@@ -12,6 +12,7 @@ ext{
     desc = "The annotations of apply dynamic permission requests."
     website = "http://47.108.86.80/graceens/foresee/tree/master/permission-annotation"
     labels = ['java', 'android', 'permission']
+    version = rootProject.ext.permissionsAnnotationVersion
 }
 
 apply from: '../publish_jar.gradle'

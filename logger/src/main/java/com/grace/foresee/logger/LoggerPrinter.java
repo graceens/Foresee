@@ -72,7 +72,7 @@ public class LoggerPrinter implements Printer {
 
     @Override
     public void d(@NonNull String message, Object... args) {
-        log(INFO, null, message, args);
+        log(DEBUG, null, message, args);
     }
 
     @Override

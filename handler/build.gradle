@@ -6,8 +6,6 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -39,6 +37,7 @@ ext{
     desc = "A wrapper handler that provides a way to switch method the main thread and the background thread."
     website = "http://47.108.86.80/graceens/foresee/tree/master/handler"
     labels = ['java', 'android', 'handler']
+    version = rootProject.ext.handlerVersion
 }
 
 apply from: '../publish_aar.gradle'

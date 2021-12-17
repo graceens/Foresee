@@ -12,6 +12,7 @@ ext{
     desc = "Java reflection encapsulation simplifies the complexity of reflection calls."
     website = "http://47.108.86.80/graceens/foresee/tree/master/reflect"
     labels = ['java', 'reflect']
+    version = rootProject.ext.reflectVersion
 }
 
 apply from: '../publish_jar.gradle'

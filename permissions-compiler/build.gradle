@@ -2,8 +2,8 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.grace.foresee:permissions-annotation:${rootProject.ext.versionName}"
-    implementation "com.grace.foresee:reflect:${rootProject.ext.versionName}"
+    implementation "com.grace.foresee:permissions-annotation:${rootProject.ext.permissionsAnnotationVersion}"
+    implementation "com.grace.foresee:reflect:${rootProject.ext.reflectVersion}"
     //noinspection AnnotationProcessorOnCompilePath
     implementation "com.google.auto.service:auto-service:${rootProject.ext.autoServiceVersion}"
     annotationProcessor "com.google.auto.service:auto-service:${rootProject.ext.autoServiceVersion}"
@@ -18,6 +18,7 @@ ext{
     desc = "The compiler of apply dynamic permission requests."
     website = "http://47.108.86.80/graceens/foresee/tree/master/permissions-compiler"
     labels = ['java', 'android', 'permission']
+    version = rootProject.ext.permissionsCompilerVersion
 }
 
 apply from: '../publish_jar.gradle'

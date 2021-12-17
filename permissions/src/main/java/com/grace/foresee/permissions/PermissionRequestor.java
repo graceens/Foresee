@@ -70,7 +70,7 @@ public class PermissionRequestor {
         if (!PermissionHelper.checkPermissions(context, requestPermissions)) {
             // 检查目标sdk版本是否大于等于23（android 6.0）
             if (AppUtil.getTargetSdkVersion(context) >= Build.VERSION_CODES.M) {
-                //真正的调用系统api请求权限
+                // 真正的调用系统api请求权限
                 realRequest();
             } else {
                 // 手动开启权限
@@ -81,7 +81,6 @@ public class PermissionRequestor {
             service.onGranted(source, service.getRequestCode(), requestPermissions);
         }
     }
-
 
     /**
      * 真正的请求权限
@@ -101,6 +100,7 @@ public class PermissionRequestor {
 
     /**
      * 合理的授权，向用户解释权限的用途
+     *
      * @param permissions 需要授权的权限
      * @return PermissionRequestor
      */

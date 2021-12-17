@@ -11,11 +11,10 @@ public class DefaultManualRequestor implements ManualRequestor {
 
     @Override
     public void request(Context context, String[] permissions, int requestCode) {
-        String[] permissionNames = PermissionTranslator.translate(context, permissions);
-
         new AlertDialog.Builder(context)
                 .setTitle(R.string.permission_manual_title)
-                .setMessage(context.getString(R.string.permission_manual_message, Arrays.toString(permissionNames)))
+                .setMessage(context.getString(R.string.permission_manual_message,
+                        Arrays.toString(PermissionTranslator.translate(context, permissions))))
                 .setPositiveButton(R.string.permission_manual_ok, (dialog, which) ->
                         PermissionSettingStarter.start((Activity) context, requestCode))
                 .setNegativeButton(R.string.permission_manual_cancel, null)

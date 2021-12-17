@@ -38,6 +38,7 @@ dependencies {
     implementation project(path: ':reflect')
     implementation project(path: ':utils')
     implementation project(path: ':permissions')
+    implementation project(path: ':handler')
     annotationProcessor project(path: ':permissions-compiler')
 
     testImplementation 'junit:junit:4.12'

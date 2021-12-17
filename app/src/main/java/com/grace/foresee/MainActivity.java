@@ -1,16 +1,13 @@
 package com.grace.foresee;
 
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Base64;
-
-import com.grace.foresee.storage.Storage;
-import com.grace.foresee.storage.StorageWriter;
 import com.grace.foresee.logger.AndroidLogAdapter;
 import com.grace.foresee.logger.LogStorageStrategy;
 import com.grace.foresee.logger.LogStrategy;
@@ -22,6 +19,7 @@ import com.grace.foresee.permissions.annotation.Granted;
 import com.grace.foresee.permissions.annotation.PermanentlyDenied;
 import com.grace.foresee.permissions.annotation.Rationale;
 import com.grace.foresee.permissions.annotation.RequestCode;
+import com.grace.foresee.storage.Storage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,13 +64,16 @@ public class MainActivity extends AppCompatActivity {
         String[] requestPermission;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requestPermission = new String[]{
-                    "android.permission.READ_SMS"
+                    "android.permission.READ_SMS",
+                    "android.permission.ACCESS_MEDIA_LOCATION"
             };
         } else {
-            requestPermission = new String[]{"android.permission.READ_EXTERNAL_STORAGE",
+            requestPermission = new String[]{
+                    "android.permission.READ_EXTERNAL_STORAGE",
                     "android.permission.WRITE_EXTERNAL_STORAGE",
                     "android.permission.READ_SMS",
-                    "android.permission.READ_PHONE_STATE"};
+                    "android.permission.READ_PHONE_STATE"
+            };
         }
 
         mPermissionRequestor = PermissionRequestor.with(this).request(requestPermission);
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        Logger.d("*******************");
 
         mPermissionRequestor.handleResult(requestCode, permissions, grantResults);
     }

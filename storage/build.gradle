@@ -6,8 +6,6 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -42,6 +40,7 @@ ext{
     desc = "Encapsulation of Android storage related interfaces."
     website = "http://47.108.86.80/graceens/foresee/tree/master/storage"
     labels = ['java', 'android', 'storage']
+    version = rootProject.ext.storageVersion
 }
 
 apply from: '../publish_aar.gradle'

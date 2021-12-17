@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath 'com.android.tools.build:gradle:7.1.0-alpha01'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,13 +20,13 @@ allprojects {
         google()
         jcenter()
     }
-    tasks.withType(Javadoc) {
-        options{
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
-    }
+//    tasks.withType(Javadoc) {
+//        options{
+//            encoding "UTF-8"
+//            charSet 'UTF-8'
+//            links "http://docs.oracle.com/javase/7/docs/api"
+//        }
+//    }
 }
 
 task clean(type: Delete) {
@@ -36,8 +36,83 @@ task clean(type: Delete) {
 ext {
     versionCode = 1
     versionName = "1.0.0"
-    androidxAppcompatVersion = "1.1.0"
-    androidxConstraintlayoutVersion = "1.1.3"
+    reflectVersion = "1.1.2"
+    storageVersion = "1.1.2"
+    utilsVersion = "1.1.5"
+    exceptionVersion = "1.0.9"
+    loggerVersion = "1.0.8"
+    handlerVersion = "1.0.8"
+    permissionsAnnotationVersion = "1.0.8"
+    permissionsCompilerVersion = "1.0.8"
+    permissionsVersion = "1.0.8"
+    resVersion = "1.0.1"
+    androidxAppcompatVersion = "1.2.0"
+    androidxConstraintlayoutVersion = "2.0.2"
     autoServiceVersion = "1.0-rc7"
     javapoetVersion = "1.13.0"
 }
+
+static Task getTask(Project project) {
+    return project.getTasksByName("bintrayUpload", false)[0]
+}
+
+task publishReflect {
+    Task task = getTask(getChildProjects().get("reflect"))
+    dependsOn(task)
+}
+
+task publishStorage {
+    Task task = getTask(getChildProjects().get("storage"))
+    dependsOn(task)
+}
+
+task publishUtils {
+    Task task = getTask(getChildProjects().get("utils"))
+    dependsOn(task)
+}
+
+task publishException {
+    Task task = getTask(getChildProjects().get("exception"))
+    dependsOn(task)
+}
+
+task publishHandler {
+    Task task = getTask(getChildProjects().get("handler"))
+    dependsOn(task)
+}
+
+task publishLogger {
+    Task task = getTask(getChildProjects().get("logger"))
+    dependsOn(task)
+}
+
+task publishRes {
+    Task task = getTask(getChildProjects().get("res"))
+    dependsOn(task)
+}
+
+task publishPermissionsAnnotation {
+    Task task = getTask(getChildProjects().get("permissions-annotation"))
+    dependsOn(task)
+}
+
+task publishPermissionsCompiler {
+    Task task = getTask(getChildProjects().get("permissions-compiler"))
+    dependsOn(task)
+}
+
+task publishPermissions {
+    Task task = getTask(getChildProjects().get("permissions"))
+    dependsOn(task)
+}
+
+publishReflect.group("build")
+publishStorage.group("build")
+publishUtils.group("build")
+publishException.group("build")
+publishHandler.group("build")
+publishLogger.group("build")
+publishRes.group("build")
+publishPermissionsAnnotation.group("build")
+publishPermissionsCompiler.group("build")
+publishPermissions.group("build")

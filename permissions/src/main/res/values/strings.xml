@@ -11,8 +11,8 @@
     <string name="permission_record_audio">录制音频</string>
     <string name="permission_call_phone">拨打电话</string>
     <string name="permission_read_phone_state">访问电话状态</string>
-    <string name="permission_read_call_log">查看电话日志</string>
-    <string name="permission_write_call_log">写入电话日志</string>
+    <string name="permission_read_call_log">读取通话记录</string>
+    <string name="permission_write_call_log">写入通话记录</string>
     <string name="permission_add_voice_mail">添加语音邮件</string>
     <string name="permission_use_sip">SIP视频服务</string>
     <string name="permission_body_sensors">收集身体状况传感器的数据</string>

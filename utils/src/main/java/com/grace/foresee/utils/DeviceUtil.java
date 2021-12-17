@@ -69,7 +69,7 @@ public class DeviceUtil {
             }
 
             // 写入缓存
-            // 将文件伪装成图片（文件存放在除Images、Video、Audio以外的数据表中时，应用重启后将不可访问）
+            // 将文件伪装成图片（文件存放在除Images、Video、Audio以外的数据表中时，应用重装后将不可访问）
             //noinspection ConstantConditions
             MediaStoreWriter.write(context, MediaType.PICTURES,
                     "image/*", dirName, fileName, imei);
